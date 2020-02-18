@@ -15,8 +15,8 @@ if __name__=="__main__":
     df1.columns = ['id', 'tittle', 'cast', 'crew']
     df2 = df2.merge(df1, on='id')
 
-    df2.head(5)
-    df2.shape
+    print(df2.head(5))
+    print(df2.shape)
     # the shape is (4803, 23)
 
     c= df2["vote_average"].mean()
@@ -26,7 +26,7 @@ if __name__=="__main__":
     # making a data frame with condition of value in vote_count higher or equal to m
     q_movies = df2.copy().loc[df2['vote_count'] >= m]
 
-    q_movies.shape
+    print(q_movies.shape)
     # shape of this df is (481, 23)
 
     # now we define a new metrics and call it score
@@ -57,6 +57,10 @@ if __name__=="__main__":
     plt.gca().invert_yaxis()
     plt.xlabel("Popularity")
     plt.title("Popular Movies")
-    plt.draw()
+    plt.show()
+
+    df2['overview'].head(5)
+
+    from sklearn.feature_extraction.text import TfidfVectorizer
 
 
